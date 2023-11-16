@@ -1,0 +1,309 @@
+@charset "UTF-8";
+
+/* /////////////////////////////////////
+   CotEditor Top Page Style Sheet
+   
+   author  : 1024jp <wolfrosch.com>
+   site    : coteditor.com
+   target  : top page
+   lastMod : 2022-05
+  ////////////////////////////////////// */
+
+body {
+	color: hsl(0,0%,30%);
+	font-size: 16px;
+	text-align: center;
+	
+	padding-left: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+}
+main {
+	margin: 0;
+	width: 100%;
+	max-width: 100%;
+}
+main > section {
+	margin: 2em auto;
+}
+main > section > h2 {
+	font-weight: 500;
+	font-size: 120%;
+	margin: 10px;
+}
+
+
+/* beta link */
+a#beta {
+	color: white;
+	font: 36px 'Noteworthy';
+	text-transform: capitalize;
+	text-align: right;
+	transform: rotate(-3deg);
+	
+	box-sizing: border-box;
+	display: block;
+	position: absolute;
+	top: -64px;
+	left: -28px;
+	z-index: 5;
+	width: 160px;
+	height: 160px;
+	padding: 72px 0 32px;
+}
+a#beta:hover {
+	background: transparent;
+	text-shadow: 0 0 6px white;
+}
+a#beta::before {
+	background: hsl(0,0%,33%);
+	box-shadow: inset 0 0 18px hsla(0,0%,0%,.2);
+	content: '';
+	
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -40px;
+	width: 500px;
+	height: 120px;
+	z-index: -1;
+	transform: rotate(-15deg);
+}
+a#beta strong {
+	font-weight: 500;
+}
+
+
+/* title */
+#top {
+	max-width: 680px;
+	min-height: 256px;
+	margin: 30px auto 50px;
+	text-align: left;
+	padding: 24px 0 0 288px;
+	box-sizing: border-box;
+	position: relative;
+}
+#top > img:first-child {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#top h1 {
+	font-family: 'Avenir', 'Helvetica Neue', sans-serif;
+	font-size: 64px;
+	font-weight: 400;
+	line-height: 1.0;
+}
+#top p {
+	font-size: 16px;
+	font-weight: 300;
+	letter-spacing: 1px;
+	
+	margin: 0 4px;
+}
+
+
+/* download */
+#latest {
+	position: relative;
+	margin-top: 22px;
+}
+#latest .handwriting {
+	font: 17px/1.0 'HanziPen SC', 'Bradley Hand', 'Noteworthy', sans-serif;
+	color: hsl(0,0%,0%);
+	opacity: 0.4;
+	display: block;
+	transform: rotate(-3deg);
+	margin: 0.5em 1em 0.9em;
+}
+a.download {
+	display: inline-block;
+}
+a.download:hover {
+	background: transparent;
+	position: relative;
+	top: 1px;
+}
+a.download img {
+	height: 50px;
+	margin: 0;
+}
+
+
+/* screen shots */
+#screenshots {
+	background: linear-gradient(hsl(70,70%,75%), hsl(90,50%,55%));
+	border-top: 1px solid hsl(70,20%,80%);
+	border-bottom: 1px solid hsl(90,30%,50%);
+	padding: 20px 0 0;
+}
+.slider {
+	position: relative;
+	overflow: auto;
+}
+
+.slider .controls label {
+	opacity: 0.6;
+	background: url('parts/arrow_left.svg');
+	width: 48px;
+	height: 48px;
+	
+	position: absolute;
+	top: 300px;
+	z-index: 2;
+}
+.slider .controls label:hover {
+	opacity: 1.0;
+}
+#item1:checked ~ .controls label:nth-child(5),
+#item2:checked ~ .controls label:nth-child(1),
+#item3:checked ~ .controls label:nth-child(2),
+#item4:checked ~ .controls label:nth-child(3),
+#item5:checked ~ .controls label:nth-child(4) {
+	left: 48px;
+}
+
+#item1:checked ~ .controls label:nth-child(2),
+#item2:checked ~ .controls label:nth-child(3),
+#item3:checked ~ .controls label:nth-child(4),
+#item4:checked ~ .controls label:nth-child(5),
+#item5:checked ~ .controls label:nth-child(1) {
+	right: 48px;
+	transform: rotate(180deg);
+}
+
+
+
+/* lead */
+#lead {
+	font: italic 300 32px 'Helvetica Neue', 'Hiragino Sans', sans-serif;
+	letter-spacing: 1px;
+	color: hsl(198,40%,40%);
+}
+
+
+/* highlights */
+#highlights {
+	max-width: 800px;
+	
+	background: url('parts/to_features.svg') no-repeat center bottom;
+	padding-bottom: 130px;
+	margin-bottom: -1em;
+}
+#highlights h2 {
+	display: none;
+}
+#highlights section {
+	display: inline-block;
+	vertical-align: top;
+	width: 30%;
+	position: relative;
+	padding-top: 104px;
+}
+#highlights section+section {
+	margin-left: 2%;
+}
+#highlights section img {
+	width: 96px;
+	margin-left: -48px;  /* 1/2 width */
+	text-align: center;
+	position: absolute;
+	top: 0;
+	left: 50%;
+}
+#highlights section h3 {
+	font-size: 120%;
+	font-weight: 400;
+	
+	margin: 0 0 0.2em;
+}
+#highlights section p {
+	font-size: 96%;
+	line-height: 1.4;
+	margin: 0;
+}
+
+
+
+/* features */
+#features {
+	max-width: 760px;
+}
+#features h2 {
+	font-size: 32px;
+	font-weight: 200;
+	letter-spacing: 2px;
+}
+#features div {
+	text-align: left;
+	columns: 2;
+	-webkit-column-gap: 2em;
+	column-gap: 2em;
+	overflow: hidden;
+}
+#features section {
+	break-inside: avoid;
+	margin: 0;
+	padding-bottom: 1.5em;
+}
+#features section img {
+	width: 48px;
+	float: left;
+	padding-top: 4px;
+}
+#features section h3 {
+	font-size: 110%;
+	margin: 0 0 4px;
+}
+#features section p {
+	font-size: 90%;
+	line-height: 1.6;
+	margin: 0 0 0 60px;
+}
+
+
+
+/* develop */
+#develop::before {
+	content: '';
+	display: block;
+	max-width: 680px;
+	margin: 40px auto 25px;
+	border-bottom: 1px solid hsla(0,0%,0%,.1);
+}
+#develop section h3 {
+	font-size: 105%;
+}
+#develop section p {
+	font-size: 90%;
+	margin: 0.2em;
+}
+#develop a.github {
+	display: inline-block;
+	color: hsl(0,0%,33%);
+	border: 2px solid hsla(0,0%,33%,0.5);
+	border-radius: 4px;
+	letter-spacing: 1px;
+	padding: 5px 10px;
+}
+#develop a.github:hover {
+	background: transparent;
+	color: hsl(90,45%,45%);
+	border-color: hsla(90,45%,45%,0.5);
+}
+
+
+/* footer */
+body > footer {
+	color: hsl(198,20%,40%);
+	background: hsl(198,20%,96%);
+	border-top: hsl(198,20%,90%) 1px solid;
+	padding-bottom: 1em;
+}
+aside.sns {
+	margin: 2em;
+}
+body > footer p {
+	margin: 1em;
+}

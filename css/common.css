@@ -1,0 +1,313 @@
+@charset "UTF-8";
+
+/* /////////////////////////////////////
+   CotEditor Common Style Sheet
+   
+   author  : 1024jp <wolfrosch.com>
+   site    : coteditor.com
+   target  : all pages
+   lastMod : 2022-05
+  ////////////////////////////////////// */
+
+/*___0.universal_reset_______________________________________________________*/
+
+* {
+	margin: 0;
+	padding: 0;
+	line-height: 1.0;
+	font-weight: inherit;
+	font-style: inherit;
+	text-spacing: ideograph-alpha;  /* https://drafts.csswg.org/css-text-4/#text-spacing */
+}
+img {
+	border: none;
+}
+a {
+	text-decoration: none;
+	transition: -webkit-filter 0.3s;
+}
+ul li {
+	list-style: none;
+}
+
+
+
+/*___1.common rule___________________________________________________________*/
+
+/* anchors */
+a:link,
+a:visited {
+	color: hsl(90,45%,45%);
+}
+a:link:hover {
+	background: hsla(90,45%,45%,.2);
+}
+a:not([href]) {
+	color: inherit;
+}
+a > sup {
+	color: hsl(0,0%,50%);
+	font-size: 70%;
+	margin: 0 1px;
+}
+
+
+/* basic spacing */
+main p,
+main dd,
+main li {
+	line-height: 1.6;
+}
+main h1,
+main h2,
+main h3,
+main h4,
+main dt {
+	line-height: 1.4;
+}
+
+main p {
+	margin: 1em 0;
+}
+section {
+	margin: 2em 0 3em;
+}
+section > section {
+	margin: 1em 0;
+}
+
+/* list marker */
+main ul li {
+	list-style-type: circle;
+	margin-left: 1.5em;
+}
+main li+li {
+	margin-top: 0.2em;
+}
+
+/* table */
+table {
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+table tr > * {
+	padding: 0.2em 0.5em;
+	line-height: 1.5;
+}
+table thead tr > * {
+	font-weight: 500;
+	border-bottom: 0.5px solid hsla(0,0%,0%,.8);
+}
+table tbody tr > * {
+	border-bottom: 0.5px solid hsla(0,0%,0%,.08);
+}
+
+/* code */
+code {
+	font: 94% Menlo, monospace;
+	color: hsla(0,0%,0%,.8);
+	background-color: hsl(0,0%,98%);
+	border: 1px solid hsl(0,0%,93%);
+	border-radius: 2px;
+	padding: 0.1em 0.3em;
+}
+pre code {
+	display: block;
+	width: 80%;
+	padding: 0.3em 1em;
+	line-height: 1.6;
+}
+
+/* other styles */
+strong {
+	font-weight: bold;
+}
+dfn {
+	font-style: italic;
+}
+
+
+/*___2.layout________________________________________________________________*/
+
+/* body */
+body {
+	font: 14px 'Helvetica Neue', sans-serif;
+	color: hsl(0,0%,10%);
+	
+	background: white;
+	padding: 15px 20px;
+}
+
+
+/* header */
+body > header {
+	font: 200 18px/1.0 'Avenir', 'Helvetica Neue', sans-serif;
+	letter-spacing: 0.05em;
+	color: hsl(0,0%,33%);
+	min-height: 16px;
+}
+body > header a {
+	color: inherit !important;
+	background: transparent !important;
+	
+	position: relative;
+	transition: all 0.3s ease;
+	display: inline-block;
+}
+body > header a:link:hover {
+	transform: translateY(-3px);
+}
+body > header > a:first-child {
+	font-size: 26px;
+}
+body > header > a:first-child::before {
+	display: inline-block;
+	content: '';
+	width: 48px;
+	height: 48px;
+	background: url('../img/appicon/64@2x.png');
+	background-size: 48px;
+	vertical-align: -14px;
+	margin-right: 4px;
+	transition: transform 0.67s ease;
+}
+body > header > a:first-child:hover::before {
+	transform: rotate(-360deg);
+}
+body > header > nav {
+	text-align: right;
+	
+	position: absolute;
+	top: 8px;
+	right: 0;
+	text-align: right;
+	padding: 1em 2em;
+}
+body > header > nav li {
+	display: inline;
+	margin: 0 0.4em;
+}
+body > header > nav a[href*=twitter] {
+	color: hsl(203,80%,50%) !important;
+}
+body > header > nav a[href*=twitter]::before {
+	content: url('parts/twitter_large.svg');
+	margin-right: 4px;
+	vertical-align: -2px;
+}
+body > header > nav a:lang(ja):not([rel=external]) {
+	font-size: 90%;  /* adjust Japanese font size */
+}
+
+
+/* main */
+main {
+	margin: 30px auto;
+	width: 80%;
+	max-width: 1000px;
+}
+
+/* footer */
+body > footer {
+	font-size: 13px;
+	text-align: center;
+	margin-top: 40px;
+}
+
+/* sns */
+aside.sns li {
+	display: inline-block;
+	max-width: 90px;
+	vertical-align: top;
+}
+aside.sns li+li {
+	margin-left: 10px;
+}
+
+
+/*___3.tooltip_______________________________________________________________*/
+
+[role=tooltip]  { position:absolute; z-index:20; padding:0.3em 0.6em;
+                  box-shadow:0 2px 5px hsla(0,0%,0%,.4); text-align:left;
+                  background-color:hsla(0,0%,20%,0.96); border-radius:8px;
+                  opacity:0; transition: opacity 0.3s;
+                  font-family: -apple-system-font, sans-serif }
+[role=tooltip]::after { content: ''; height:0; width:0;
+                        position:absolute; left:40px; bottom:-17px;
+                        border:9px solid transparent;
+                        border-top-color:hsl(0,0%,20%);
+                        filter:drop-shadow(0px 2px 3px hsla(0,0%,0%,.2)) }
+[role=tooltip] p    { color:hsl(0,0%,92%); line-height:1.2 }
+[role=tooltip] span { color:hsl(0,0%,67%); font-size:92% }
+[role=tooltip] p+p  { color:hsl(0,0%,67%); font-size:80%;
+                      word-wrap:break-word; margin-top:1px }
+[role=tooltip] p::before  { opacity:0.9; margin-right:5px; vertical-align:-1px; }
+
+[role=tooltip].github p:first-child::before {
+	content: url('parts/w_sns_github.svg');
+}
+[role=tooltip].twitter p:first-child::before {
+	content: url('parts/w_sns_twitter.svg');
+}
+[role=tooltip].note p {
+	font-size: 90%;
+	line-height: 1.4;
+	text-align: justify;
+	text-shadow: none;
+	
+	width: 280px;
+	padding: 2px 2px 3px;
+}
+
+
+
+/*___4.classes_______________________________________________________________*/
+
+/* FQA */
+
+dl.fqa {
+	margin: 1em 0;
+}
+dl.fqa > dt {
+	font-size: 120%;
+}
+dl.fqa > * {
+	text-indent: -1.8em;
+	margin-left: 1.8em;
+	margin-bottom: 0.2em;
+}
+dl.fqa > dd + dt {
+	margin-top: 1.5em;
+}
+dl.fqa > ::before {
+	font: 200 20px/1.0 'Helvetica Neue', sans-serif;
+	margin-right: 0.3em;
+}
+dl.fqa > dt::before {
+	content: 'Q.';
+	color: hsl(200,60%,45%);
+}
+dl.fqa > dd::before {
+	content: 'A.';
+	color: hsl(30,75%,45%);
+}
+dl.fqa > dt:lang(tr)::before {
+	content: 'S.';
+}
+dl.fqa > dd:lang(tr)::before {
+	content: 'Y.';
+}
+dl.fqa > dd > ul,
+dl.fqa > dd > ol,
+dl.fqa > dd > dl {
+	margin: 0.5em 3em;
+}
+dl.fqa > dd > dl dt {
+	font-weight: 500;
+	display: list-item;
+	list-style: circle inside;
+	margin-left: -1em;
+}
+dl.fqa > dd > dl dd {
+	margin-bottom: 0.5em;
+}
