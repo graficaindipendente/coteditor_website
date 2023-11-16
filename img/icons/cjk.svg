@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+                     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 32 32">
+
+<style type="text/css"><![CDATA[
+	:root { stroke:hsl(90,50%,50%); fill:transparent;
+	        stroke-width:2; stroke-linejoin:round; stroke-linecap:round }
+	.thin { stroke-width:1 }
+	
+	line  { stroke-linecap:butt }
+	text  { fill:hsl(90,50%,50%); stroke:transparent; font-family:sans-serif; }
+]]></style>
+
+
+<text x="14" y="23" text-anchor="middle" font-size="24">あ</text>
+<line y2="-21" transform="translate(30,24)"/>
+
+</svg>
